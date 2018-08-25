@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div class="inputwrapper register">
+    <a href="/" class="goto-sign-in rollover-toggle" onclick='trackLinkAccountHeader()'>Back</a>
+</div>
+<div class="signin-rollover-register">
+    <section class="resposive create-account popdown-form">
+        <form class='form-login' action="/login/" method="Post">
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            {% csrf_token %}
+            <div onsubmit="trackSubmitRegister()" method="Post" class="responsive form-section" novalidate/>
+            <fieldset class="form-part">
+                <legend class="heading">Create an Library Account</legend>
+                <div class="inputwrapper">
+                    <label class="form-label">Email:</label>
+                    <input type="email" class="email-input" name="useremail" id="txt-signin-rollover-register-email"
+                           value="" data-validation-email="true" data-validation-required="true"
+                           data-validation-required-text=" You have to enter an email address."/>
+                    <div class="input-info">Please enter an email address.</div>
+                    <div class="inputwrapper">
+                        <label class="form-label">Password:</label>
+                        <input type="password" name="userpassword" id="txt-signin-rollover-register-password"
+                               class="password=input" data-validation-required="true"
+                               data-validation-text="You have to confirm your password" data-validation-minlength="6"
+                               data-validation-minlength-text="Your password needs to be at least 6 characters long"
+                               data-validation-maxlength="25"
+                               data-validation-maxlength-text="Your password exceeds the maximum character limit of 25."
+                               data-validation-nospaces="true"
+                               data-validation-nospaces-text="Password must not contain any spaces"/>
+                        <div class="input-info">Please enter a password.</div>
+                        {% comment %} <button type="button" data-show-text="SHOW" data-hide-text="HIDE" tabindex="0"
+                                class="toggle-password-visibility js-toggle-password-visibility">SHOW
+                        </button>{% endcomment %}
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-part">
+                <div class="inputwrapper required">
+                    <input class="checkbox-input" type="checkbox" required="true"
+                           id="create-account-popdown-privacy-policy" name="create-account-popdown-privacy-policy">
+                    <label class="checkbox-label" for="create-account-popdown-privacy-policy">
+                        I agree to let DH^Library;M process my personal data in order to manage my
+                        personal account, in accordance with DH^Library<a href="#">Privacy Notice</a><br/>
+                    </label>
+                    <div class="button-group">
+                        <button type="submit" class="button large"
+                                data-validation-text="This form could not be submitted. Please review your information">
+                            Join Us
+                        </button>
+                        {% comment %}<button type="button" class="big secondary button large" onclick="trackClickButtonBack()">Back
+                            to sign in
+                        </button>{% endcomment %}
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<a href="/" class="goto-sign-in rollover-toggle" onclick='trackLinkAccountHeader()'>Back</a>
+<div class="signin-rollover popdown row">
+    <div class="inner">
+        <div class="sign-rollover-login">
+            <fieldset class="=fieldset">
+                <legend class="legend sub-sub-heading light">Login</legend>
+                <form class='form-login' action="/blog/" method="Post">
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div id="theLoginForm" class="responsive form-section" onsubmit="trackSubmitLogin()"
+                         method="post"></div>
+                    <input type="hidden" id="enableMigration" value="true" name="enableMigration">
+                    <input type="hidden" id="cookieName" value="HMORIGOGIN" name="cookieName">
+                    <span class="hidden" id="notJoshuaEmail">
+                       Hi,  To provide a more secure and pleasant fashion experience at DH^Library.com, login by using your email. Just enter your current password to continue. If you need help, feel free to get in touch with us at {0}
+                   </span>
+                    <span class="hidden" id="joshuaStartAreNotSame">Make sure to be the first to know what's going on in the world of fashion, sign up to our newsletter.</span>
+                    <span class="hidden" id="notLogin">Hi, To provide a more secure we ask you to use an email address as your Username.  If you need help, feel free to get in touch with us at + 1235 2355 98.</span>
+                    <div class="inputwrapper required">
+                        <label class="label">Email:</label>
+                        <input class="text-input" name="email" type="email" placeholder=""
+                               id="txt-sign-rollover-email" data-validation-email="ture"
+                               data-validation-email-text="Please enter a valid email."
+                               data-validation-required-text="You have to enter an email address"
+                               data-validation-required="true" maxlength="50"/>
+                    </div>
+                    <div class="inputwrapper required">
+                        <label class="label for=txt-signin-rollover-password">Password:</label>
+                        <input class="password-input" name="password" type="password" id="txt-signin-roller-password"
+                               data-validation-text="You have to enter a password" data-validation-required="true"
+                               data-validation-required-minlength="6"
+                               data-validation-minlength-text="Your password needs to be at least 6 characters long"
+                               data-validation-maxlength="25"
+                               data-validation-maxlength-text="Your password exceeds the maximum character limit of 25"/>
+                    </div>
+                    <div class="inputwrapper list-group">
+                        <ul class="input-list">
+                            <li class="item">
+                                <input class="checkbox-input" type="checkbox" name="_spring_security_remember_me"
+                                       id="_soring_security_remember_me"/>
+                                <label class="checkbox-label" for="_soring_security_remember_me">Keep me signed
+                                    in!</label>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="inputwrapper">
+                        <p>
+                            <a href="#" class="forgot-password underline">Forgot your password?</a>
+                        </p>
+                        <input id="loginBtnSubmit" type="submit" class="large fluid button" value="Sign in"
+                               data-validation-text="This form could not be submitted. Please review your information"
+                               data-validation-required="true"/>
+                    </div>
+
+                </form>
+            </fieldset>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
